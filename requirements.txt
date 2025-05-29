@@ -7,3 +7,5 @@ nltk
 folium
 requests
 streamlit-folium
+gdown
+openpyxl
