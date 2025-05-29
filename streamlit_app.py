@@ -22,7 +22,12 @@ st.set_page_config(
     initial_sidebar_state="expanded")
 
 # Load data
-df = pd.read_excel('Marine Pollution data.xlsx')
+uploaded_file = st.file_uploader("Upload Marine Pollution Excel File", type=["xlsx"])
+if uploaded_file is not None:
+    df = pd.read_excel(uploaded_file)
+    st.success("File uploaded and read successfully!")
+else:
+    st.warning("Please upload the 'Marine Pollution data.xlsx' file.")
 
 # --- Preprocessing ---
 # Tampilkan jumlah missing values sebelum
