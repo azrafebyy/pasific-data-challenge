@@ -21,13 +21,14 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
+# Cek apakah file sudah ada
+if not os.path.exists("Marine Pollution data.xlsx"):
+    file_id = "12Q2x8AhCP8XCRrPi1bz2tQ9kJjWe2alV"
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, "Marine Pollution data.xlsx", quiet=False)
+    
 # Load data
-uploaded_file = st.file_uploader("Upload Marine Pollution Excel File", type=["xlsx"])
-if uploaded_file is not None:
-    df = pd.read_excel(uploaded_file)
-    st.success("File uploaded and read successfully!")
-else:
-    st.warning("Please upload the 'Marine Pollution data.xlsx' file.")
+df = pd.read_excel('Marine Pollution data.xlsx')
 
 # --- Preprocessing ---
 # Tampilkan jumlah missing values sebelum
