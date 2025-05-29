@@ -8,6 +8,8 @@ import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import nltk
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 import re
